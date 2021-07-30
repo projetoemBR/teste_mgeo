@@ -1,0 +1,14 @@
+metodo:MT3D
+freq:0.01,1000,5
+topo:teste_topografia_dado_1000_14deg.dat
+dxdydz:100,100,100
+X:5000
+Y:5000
+Z:16000
+layer:1000
+cond: 1.0e-2,1.0e-1
+box: -300,1600,-500,1000,-2500,200,1.0e-5
+#exemplo0
+ 
+ 
+
