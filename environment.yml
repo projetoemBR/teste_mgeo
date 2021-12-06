@@ -1,4 +1,4 @@
-name: mgeo
+name: tgeo
 channels:
     - conda-forge
 dependencies:
@@ -12,6 +12,7 @@ dependencies:
     - vectormath>=0.2.0
     - discretize>=0.7.0
     - geoana>=0.0.4
+    - psutil
     - empymod
     - pandas
     - mkl

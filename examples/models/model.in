@@ -1,0 +1,92 @@
+freq:0.5,2,-4
+#hspace:20000,14000,10000,10
+hspace:20000,14000,10000,100,ramp.btm
+sea:1000
+src:11000,7000,50,x
+rec:3500,7000,5000,7000,3
+box:8000,12000,6000,8000,8500,9000,1000,800,1000
+box:2000,7000,6500,8500,8500,9000,2000,1800,1500
+
+# -------------------Guidelines---------------------
+ 1) Comment lines begin with # space or tab.
+ 2) Do not include spaces anywhere to separate I/P elements.
+ 3) Empty lines are not allowed but the very last.
+ 4) File does not need to have all model elements.
+ 5) Units in SI.
+# -------------- Mandatory parameters   ----------------------------
+ 1) hspace:X,Y,Z,rhs,foo.bat
+     X,Y,Z    -> hspace core dimensions, large enough to hold all model elements
+                 but sea and air. Origin is the lower SW (left) corner.
+     rhs      -> rhs is the isotropic half-space resistivity(Ohm.m)
+     foo.bat  -> A 3-column file (x y z) for bathymetry/topography file. Columns are separated
+                 by \t (tab char.). This file assumes z=0 means the Z given here.
+                 Filename is absent for a flat surface.
+ 2) freq:f0[,f1,nf] in Hz.
+     f0       -> A single frequency
+     f0,f1,nf -> A logarithmic frequency range [10^f0, 10^f1] with nf frequencies/decade.
+     f0,f1,-nf-> A linear frequency range [f0, f1] with nf frequencies.
+ 3) rec:Rx0,Ry0[,Rx1,Ry1,N] or foo.rec
+     Rx0,Ry0             -> Horizontal coordinates for one receiver. As many as there are receivers.
+     Rx0,Ry0[,Rx1,Ry1,N] -> A receiver profile with N receivers.
+     foo.rec  -> A 2-column file (X Y) with receiver locations.
+ 4) box:x0,x1,y0,y1,z0,z1,rx[,ry,rz]
+     A model primitive constructor element.
+     x0,y0,z0   -> Box origin at the lower SW (left, cosest to observer) corner.
+     x1,y1,z1   -> Box top NE corner (right, farthest from the observer) corner.
+     rx[,ry,rz] -> rx = Box resistivity (Ohm.m) if ry,rz are absent.
+                   rx,ry,rz = main diagonal of the resistivity tensor.
+#
+# -------------- Optional parameters   ----------------------------
+ 1) sea:depth
+     depth    -> Sea depth (m). If absent -> MT Land survey
+    sea_r:sea_res
+     sea_res  -> Sea resistivity (ohm.m). Defaults if absent.
+ 2) air:thick
+     thick    -> Air layer (km). If absent thick=50km.
+ 3) src:Sx,Sy[,Sz,dir]
+     Absent  -> mMT survey in sea or on land.
+     Sx,Sy -> Horizontal coordinates for one transmitter.
+     Sz    -> Surface clearance from soil/sea bottom. Sz0=0 if absent.
+     dir   -> Source direction, dir = 'x' or 'y'. dir='x' if absent.
+ 4) dipo:slen,dir  <-not implemented
+     Valid ony if src is set.
+     slen        -> Bipole length.
+     dir='x','y' -> source direction.
+ 5) SHOULD BE MODIFIED. Attn to, maybe 3 values for dxyz: min, choosen, max
+        min(dxyz) for around source, receivers and edges
+    choosen(dxyz) for around core
+        max(dxyz) for far-reaching zones and air
+#
+# -------------- Parameters requested by program  ----------------------------
+ 1) dxyz:dx[,dy,dz] or -dx
+     Discretization for the computational domain, dx=dy=dz
+                 dav = skin depth of the geometric average of resistivities and for the geometric average of the frequencies.
+
+2)    mad -> rb,  rd,  [N0,N1,...]
+  Default  [  4,   1.,  [  None   ] ]
+     4 <= rb <= 8 -> controls extrusion of core domain dimensions.
+                     Number of padding cells at the boundaries between model elements and
+                     of boundary layers (except air). Energy decay: 98% (4 sdepth); 99.97% (8 sdepth). May also control octree_levels.
+    0 < rd <= 1  -> a multiplier for the minimum skin depth to control the finest discretization, which should be 10%-20% the size of your smallest diffusion distance.
+    [N0,N1,...]  -> an octree levels list.
+    Notes:
+    (1) mad are mesh adaptation parameters. All but ac from Plessix, 2007, Geophys., 72:5.   
+    (2) For bipoles spacing should be =min(ss*ds, dav), where:
+         ds  = min(slen/rs,d);
+         dav = geometric average skin depth of model and
+         d   = at source skin depth.
+#
+# -------------- Notes ----------------------------
+ 1) Program holds only dipole sources. A bipole will throw out an error message.
+ 2) Program assumes sea resistivity as the lowest of all.
+#
+# -------------- Convention ----------------------------
+                             _________
+                            /        /|
+                           /        / |
+                          /________/  |
+                 z        |        |  |
+                 | /y     |rx,ry,rz|  |
+                 |/       |        | /
+                 +---x    |________|/
+                 0   

@@ -32,7 +32,7 @@ with open("README.md") as f:
 setup(
     name="MGeo",
     version="0.0.2",
-    packages=find_packages(exclude=["tests*", "examples*", "tutorials*", "temp*", "pproc*", "front_end*"]),
+    packages=find_packages(exclude=["tests*", "examples*", "tutorials*", "temp*", "pproc*", "front-end*"]),
     install_requires=[
         "numpy>=1.7",
         "scipy>=1.0.0",
@@ -52,10 +52,10 @@ setup(
     author_email="wavefrontgeo@gmail.com",
     description="MGEO package with modification to incorporate octree meshes with MT",
     long_description=LONG_DESCRIPTION,
-    license="MIT",
+    license="UFPA",
     keywords="geophysics",
-    url="https://github.com/projetoemBR/teste_mgeo",
-    download_url="https://github.com/projetoemBR/teste_mgeo",
+    url="https://github.com/projetoemBR/mgeo",
+    download_url="https://github.com/projetoemBR/mgeo",
     classifiers=CLASSIFIERS,
     platforms=["Windows", "Linux", "Solaris", "Mac OS-X", "Unix"],
     use_2to3=False,
