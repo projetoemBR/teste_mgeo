@@ -1,6 +1,6 @@
 # MGeo
 
-Instalação:
+## Instalação:
 
 1. Baixar pacote mgeo:  
 *https://github.com/projetoemBR/teste_mgeo*
