@@ -6,7 +6,7 @@
 
 A instalação obedece uma sequência bem definida como mostra os itens abaixo. O usuário deve serguir o passo a passo como mostrado aqui no Readme. 
 
-1. Baixar pacote mgeo:  
+1. Baixar pacote mgeo no **botão verde** no topo dessa página:  
 > *https://github.com/projetoemBR/teste_mgeo*
 
 2. Criar pasta MGeo e colocar os arquivos do pacote baixado do item 1.  
