@@ -13,9 +13,9 @@ A instalação obedece uma sequência bem definida como mostra os itens abaixo. 
 
 3. Dentro da pasta MGeo, criar um ambiente conda utilizando o arquivo .yml:  
 > *conda env create -f environment.yml*  
-   - **Observação 01:** Essa etapa demora um pouco, pois o CONDA baixa e instala os arquivos.  
+   - **Observação 01:** Essa etapa demora um pouco, pois o CONDA baixa e instala os arquivos especificados dentro do arquivo *environment.yml*.  
    - **Observação 02:** O arquivo *environment.yml* contém todas as especificações softwares e suas versões para que o pacote funcione corretamente.
-   - **Observação 02:** Ainda dentro do arquivo *environment.yml*; a primeira linha mostra o nome que será dado ao ambiente. O usuário pode mudar isso sem nenhum problema. As demais linhas são importantes para o funcionamento do pacote.
+   - **Observação 03:** Ainda dentro do arquivo *environment.yml*; a primeira linha mostra o nome que será dado ao ambiente. O usuário pode mudar isso sem nenhum problema. As demais linhas são importantes para o funcionamento do pacote.
  
 4. Após ambiente criado, ativar o ambiente **mgeo**:  
 > *conda activate mgeo*
