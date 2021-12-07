@@ -5,7 +5,7 @@
 1. Baixar pacote mgeo:  
 *https://github.com/projetoemBR/teste_mgeo*
 
-2. Criar pasta MGeo e colocar os arquivos do pacote.  
+2. Criar pasta MGeo e colocar os arquivos do pacote baixado do item 1.  
 
 3. Dentro da pasta MGeo, criar um ambiente conda utilizando o arquivo .yml:  
 *conda env create -f environment.yml*  
