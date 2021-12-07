@@ -4,6 +4,8 @@
 
 ## Instalação:
 
+A instalação obedece uma sequência bem definida como mostra os itens abaixo. O usuário deve serguir o passo a passo como mostrado aqui no Readme. 
+
 1. Baixar pacote mgeo:  
 > *https://github.com/projetoemBR/teste_mgeo*
 
@@ -21,7 +23,7 @@
 5. Com o ambiente ativado, instalar pacote Mgeo:  
 > *python setup.py install*
 
-Done!
+Após seguir os passos acima, o pacote MGeo estará instalado dentro de um ambiente Conda.
 
 ## Geração de modelos
 
