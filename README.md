@@ -9,12 +9,12 @@
 
 3. Dentro da pasta MGeo, criar um ambiente conda utilizando o arquivo .yml:  
 > *conda env create -f environment.yml*  
-**Atenção:** Essa etapa demora um pouco, pois o CONDA baixa e instala os arquivos.
+   -**Atenção:** Essa etapa demora um pouco, pois o CONDA baixa e instala os arquivos.
  
-3. Após ambiente criado, ativar o ambiente:  
+4. Após ambiente criado, ativar o ambiente:  
 > *conda activate mgeo*
 
-4. Com o ambiente ativado, instalar pacote Mgeo:  
+5. Com o ambiente ativado, instalar pacote Mgeo:  
 > *python setup.py install*
 
 Done!
