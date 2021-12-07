@@ -23,7 +23,7 @@
 
 Done!
 
-## Rodar o Front-End:
+## Geração de modelos
 
 O Front-End é responsável para gerar Modelo e Malha. Nessa parte pacote irá gerar um arquivo chamado *model.out* que conteém todas as informações necessárias para o módulo de *Simulação Numérica* efeturar os cálculos.
 
